@@ -26,7 +26,7 @@ console.log(subtraction);
 console.log(multiplication);
 console.log(division);
 console.log(modulus);
-0;
+
 
 var result1 = 15 + 15 ** 2;
 console.log(result1);

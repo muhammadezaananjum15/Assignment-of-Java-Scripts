@@ -1,0 +1,127 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+body{
+  background: linear-gradient(135deg, #020617, #020617);
+  min-height:100vh;
+  color: #fff; 
+}
+.container{
+  width:100%;
+  padding:30px 20px;
+  display:flex;
+  justify-content:center;
+}
+.glass{
+  background: rgba(255,255,255,0.05); 
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1); 
+}
+.assignment-card{
+  max-width:500px;
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6); 
+  text-align:center;
+  background: rgba(255,255,255,0.05); 
+}
+.assignment-card h2{
+  margin-bottom:10px;
+  color:#fff;
+}
+
+.desc{
+  font-size:15px;
+  color:#ccc;
+  margin-bottom:16px;
+}
+
+.features{
+  list-style:none;
+  text-align:left;
+  margin-bottom:20px;
+}
+
+.features li{
+  margin-bottom:8px;
+  font-size:14px;
+  color:#bbb;
+}
+.primary-btn{
+  background: linear-gradient(135deg, #6b5bff, #9f7fff); 
+  color:#fff;
+  border:none;
+  padding:12px 24px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.3s;
+  box-shadow: 0 5px 15px rgba(107,91,255,0.4); 
+}
+.primary-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(107,91,255,0.6);
+}
+
+.card{
+  max-width:900px;
+  width:100%;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+  background: rgba(255,255,255,0.05); 
+  transition: 0.3s;
+}
+.card:hover{
+  box-shadow: 0 25px 50px rgba(107,91,255,0.6); 
+  transform: translateY(-2px);
+}
+
+.card h2{
+  text-align:center;
+  margin-bottom:5px;
+  color:#fff;
+}
+
+.subtitle{
+  text-align:center;
+  color:#ccc;
+  margin-bottom:22px;
+}
+.result p{
+  background: rgba(255,255,255,0.05);
+  padding:12px 14px;
+  border-radius:10px;
+  margin-bottom:10px;
+  font-size:14px;
+  line-height:1.6;
+  border-left:4px solid #6b5bff; 
+  color:#eee;
+  transition: 0.3s;
+}
+
+.result p:hover{
+  border-left-color: #9f7fff; 
+  box-shadow: 0 4px 15px rgba(107,91,255,0.4); 
+  background: rgba(107,91,255,0.05); 
+}
+
+.result span{
+  display:block;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:4px;
+}
+@media(max-width:480px){
+  .assignment-card,
+  .card{
+    padding:20px;
+  }
+
+  .result p{
+    font-size:13px;
+  }
+}
