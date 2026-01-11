@@ -1,0 +1,142 @@
+/* Global */
+body{
+  background: linear-gradient(135deg, #020617, #020617);
+  min-height:100vh;
+  font-family: "Segoe UI", sans-serif;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Layout */
+.container{
+  width:100%;
+  padding:24px 16px;
+  display:flex;
+  justify-content:center;
+}
+
+/* Glass Card */
+.assignment-ui{
+  max-width:900px;
+  width:100%;
+  padding:32px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 25px 60px rgba(107,91,255,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.assignment-ui:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 35px 80px rgba(107,91,255,0.7);
+}
+
+/* Title */
+.title{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:6px;
+  line-height:1.2;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:14px;
+  color:#aaa;
+  margin-bottom:26px;
+}
+
+/* List */
+.assignment-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.assignment-list li{
+  background: rgba(255,255,255,0.05);
+  padding:14px 16px;
+  border-radius:12px;
+  margin-bottom:12px;
+  border-left:3px solid #6b5bff;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.assignment-list li:hover{
+  background: rgba(107,91,255,0.12);
+  border-left-color:#9f7fff;
+  box-shadow:0 6px 18px rgba(107,91,255,0.45);
+  transform: translateX(4px);
+}
+
+.assignment-list span{
+  display:block;
+  color:#9f7fff;
+  font-weight:600;
+  margin-bottom:4px;
+  font-size:15px;
+}
+
+/* Button */
+.primary-btn{
+  display:block;
+  width:fit-content;
+  margin:28px auto 0;
+  background: linear-gradient(135deg, #6b5bff, #9f7fff);
+  color:#fff;
+  border:none;
+  padding:12px 26px;
+  border-radius:999px;
+  font-size:15px;
+  cursor:pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow:0 6px 22px rgba(107,91,255,0.55);
+}
+
+.primary-btn:hover{
+  transform: translateY(-2px);
+  box-shadow:0 10px 30px rgba(107,91,255,0.8);
+}
+
+/* Tablet */
+@media (max-width: 768px){
+  .assignment-ui{
+    padding:28px;
+  }
+
+  .title{
+    font-size:28px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .assignment-ui{
+    padding:22px;
+    border-radius:16px;
+  }
+
+  .title{
+    font-size:24px;
+  }
+
+  .subtitle{
+    font-size:13px;
+  }
+
+  .assignment-list li{
+    padding:12px 14px;
+  }
+
+  .assignment-list span{
+    font-size:14px;
+  }
+
+  .primary-btn{
+    font-size:14px;
+    padding:11px 22px;
+  }
+}

@@ -1,6 +1,6 @@
-var fullName = 'Muhammad Ezaan Anjum';
+var fullName = "Muhammad Ezaan Anjum";
 var age = 16;
-var city = 'Karachi';
+var city = "Karachi";
 var isStudent = true;
 
 console.log(fullName);
@@ -8,10 +8,10 @@ console.log(age);
 console.log(city);
 console.log(isStudent);
 
-var userName = 'Muhammad Ezaan Anjum'; // string
+var userName = "Muhammad Ezaan Anjum"; // string
 var ageValue = 15; // number
 var isLoggedIn = false; // boolean
-var score = '1999'; // string
+var score = "1999"; // string
 
 var num1 = 15;
 var num2 = 19;
@@ -34,19 +34,18 @@ console.log(result1);
 var result2 = (15 + 15) * 20;
 console.log(result2);
 
-var welcomeMessage = 'Welcome ' + fullName;
-var ageMessage = 'Your age is ' + age;
+var welcomeMessage = "Welcome " + fullName;
+var ageMessage = "Your age is " + age;
 
 alert(welcomeMessage);
 alert(ageMessage);
 
-var name1 = 'Ali';
+var name1 = "Ali";
 var fixedAge = 20;
 
 console.log(name1);
-alert('Hello World');
-
-var profileName = 'Ezaan';
+alert("Hello World");
+var profileName = "Ezaan";
 var profileAge = 16;
 var favoriteNumber = 15;
 var studentStatus = true;
@@ -56,7 +55,7 @@ console.log(profileAge);
 console.log(favoriteNumber);
 console.log(studentStatus);
 
-var profileAlert = 'Profile Loaded Successfully';
+var profileAlert = "Profile Loaded Successfully";
 alert(profileAlert);
 
 //  Bonus Question Answer

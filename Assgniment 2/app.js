@@ -1,52 +1,68 @@
+// //  ------------------------------------------------------------------------
 // -----------------------------------------------
-var num = prompt("Enter a number:");
-if (num > 50){
-  console.log('Appropriate.');
-}
-// --------------------------------------------------
-var age = +prompt("Enter your age:");
-if (age >= 18){
-  console.log('You are eligible to vote.');
+var num = 75;
+console.log("Number:", num);
+
+if (num > 50) {
+  console.log("Appropriate.");
 } else {
-  console.log('You are not eligible to vote.');
+  console.log("Not Appropriate.");
 }
-// --------------------------------------------------
-var passwordLength = +prompt("Enter Your Password Here")
-if (passwordLength >=8){
-  console.log("Strong Password")
+
+// -----------------------------------------------
+var age = 20;
+console.log("Age:", age);
+
+if (age >= 18) {
+  console.log("You are eligible to vote.");
+} else {
+  console.log("You are not eligible to vote.");
 }
-else{
-  console.log("Weak Password")
+
+// -----------------------------------------------
+var passwordLength = 10;
+console.log("Password Length:", passwordLength);
+
+if (passwordLength >= 8) {
+  console.log("Strong Password");
+} else {
+  console.log("Weak Password");
 }
-// --------------------------------------------------
-var marks = +prompt("Enter Your Marks Here !")
+
+// -----------------------------------------------
+var marks = 65;
+console.log("Marks:", marks);
+
 if (marks >= 50) {
-  console.log('Your are Pass');
+  console.log("You are Pass");
 } else {
-  console.log('You are Fail');
+  console.log("You are Fail");
 }
-// --------------------------------------------------
-var temperature = +prompt("Enter Temperature Here !");
-if (temperature >= 30){
-  console.log("It's Hot ")
+
+// -----------------------------------------------
+var temperature = 32;
+console.log("Temperature:", temperature);
+
+if (temperature >= 30) {
+  console.log("It's Hot");
+} else {
+  console.log("Weather is Normal");
 }
-else{
-  console.log("Wether is Normal")
+
+// -----------------------------------------------
+var gradeMarks = 85;
+console.log("Marks for Grade:", gradeMarks);
+
+if (gradeMarks < 0 || gradeMarks > 100) {
+  console.log("Invalid Marks");
+} else if (gradeMarks >= 90) {
+  console.log("Grade A+");
+} else if (gradeMarks >= 80) {
+  console.log("Grade B");
+} else if (gradeMarks >= 70) {
+  console.log("Grade C");
+} else if (gradeMarks >= 60) {
+  console.log("Grade D");
+} else {
+  console.log("Fail");
 }
-// --------------------------------------------------
- var marks = +prompt ("Enter your Marks to Check your Grade Here")
- if (marks < 0 || marks > 100) {
-   console.log('Invalid Marks');
- } else if (marks >= 90) {
-   console.log('Grade A+');
- } else if (marks >= 80) {
-   console.log('Grade B');
- } else if (marks >= 70) {
-   console.log('Grade C');
- } else if (marks >= 60) {
-   console.log('Grade D');
- } 
- else {
-  console.log("Fail")
- }
-//  ------------------------------------------------------------------------
