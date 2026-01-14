@@ -1,0 +1,82 @@
+body{
+  background: linear-gradient(135deg, #020617, #020617);
+  min-height:100vh;
+  font-family: "Segoe UI", sans-serif;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+.container{
+  width:100%;
+  padding:40px 16px;
+  display:flex;
+  justify-content:center;
+}
+.assignment-ui{
+  max-width:1000px;
+  width:100%;
+  padding:32px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 25px 60px rgba(107,91,255,0.45);
+}
+.title{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:6px;
+}
+.subtitle{
+  text-align:center;
+  font-size:14px;
+  color:#aaa;
+  margin-bottom:32px;
+}
+.assignment-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:16px;
+}
+.assignment-card{
+  background: rgba(255,255,255,0.05);
+  padding:18px;
+  border-radius:14px;
+  border-left:4px solid #6b5bff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.assignment-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(107,91,255,0.45);
+}
+.assignment-card span{
+  display:block;
+  color:#9f7fff;
+  font-weight:600;
+  margin-bottom:6px;
+  font-size:14px;
+}
+.assignment-card p{
+  font-size:14px;
+  color:#e5e7eb;
+  line-height:1.5;
+}
+.primary-btn{
+  display:block;
+  margin:32px auto 0;
+  background: linear-gradient(135deg, #6b5bff, #9f7fff);
+  color:#fff;
+  border:none;
+  padding:12px 28px;
+  border-radius:999px;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow: 0 8px 20px rgba(107,91,255,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.primary-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(107,91,255,0.6);
+  border: 2px solid linear-gradient(135deg, #6b5bff, #9f7fff);
+}
