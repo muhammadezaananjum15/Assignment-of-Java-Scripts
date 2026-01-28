@@ -1,0 +1,86 @@
+body {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  font-family: "Segoe UI", sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+.assignment-ui {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 6px;
+  color: #6b5bff;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 24px;
+}
+.assignment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+.assignment-card {
+  background: rgba(255,255,255,0.07);
+  padding: 16px;
+  border-radius: 12px;
+  border-left: 4px solid #6b5bff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.assignment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(107,91,255,0.4);
+}
+
+.assignment-card span {
+  font-weight: 600;
+  color: #9f7fff;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.assignment-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e5e7eb;
+}
+.primary-btn {
+  display: block;
+  margin: 24px auto 0;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6b5bff, #9f7fff);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107,91,255,0.5);
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+  .assignment-card p {
+    font-size: 13px;
+  }
+}
