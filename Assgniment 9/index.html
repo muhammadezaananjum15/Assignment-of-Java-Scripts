@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assginment 9</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container assignment-ui">
+  <h1 class="title">JavaScript Assignment 9</h1>
+  <p class="subtitle">Practice DOM Manipulation with JavaScript</p>
+
+  <div class="assignment-grid">
+    <div class="assignment-card">
+      <span>Exercise 1</span>
+      <h3 id="text">Hello</h3>
+      <button class="primary-btn" onclick="changeText()">Change Text</button>
+    </div>
+    <div class="assignment-card">
+      <span>Exercise 2</span>
+      <p id="para">This is old text</p>
+      <button class="primary-btn" onclick="updateText()">Update</button>
+    </div>
+    <div class="assignment-card">
+      <span>Exercise 3</span>
+      <input type="text" id="name" placeholder="Enter your name">
+      <button class="primary-btn" onclick="showName()">Show</button>
+      <p id="result"></p>
+    </div>
+    <div class="assignment-card">
+      <span>Exercise 4</span>
+      <p id="msg">Waiting...</p>
+      <p class="text-secondary mt-2">Text will change automatically after 2 seconds</p>
+    </div>
+    <div class="assignment-card">
+      <span>Exercise 5</span>
+      <h3 id="message">Click below</h3>
+      <button class="primary-btn" onclick="changeMessage()">Click</button>
+    </div>
+  </div>
+</div>
+</body>
+<script src="app.js"></script>
+</html>
