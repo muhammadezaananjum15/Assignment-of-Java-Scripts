@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TODO APP<span>.</span></h1>
+    <p class="sub">List your Work and make it in a orginized way</p>
+    <div class="card">
+    
+      <!-- Input -->
+      <div class="input-row">
+        <input type="text" id="myInput" placeholder="Add a new task..." />
+        <button id="addBtn">ADD</button>
+      </div>
+    
+      <!-- Counter + Clear -->
+      <div class="bar">
+        <span class="count" id="countText">0 tasks left</span>
+        <button id="clearBtn">Clear done</button>
+      </div>
+    
+      <!-- List -->
+      <ul id="myList">
+        <li>
+          <div class="circle"><span class="tick">✓</span></div>
+          <span class="task-text">Post on Linkdin</span>
+          <button class="del">✕</button>
+        </li>
+        <li>
+          <div class="circle"><span class="tick">✓</span></div>
+          <span class="task-text">Read a book</span>
+          <button class="del">✕</button>
+        </li>
+        <li>
+          <div class="circle"><span class="tick">✓</span></div>
+          <span class="task-text">Improved your English</span>
+          <button class="del">✕</button>
+        </li>
+      </ul>
+    
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
