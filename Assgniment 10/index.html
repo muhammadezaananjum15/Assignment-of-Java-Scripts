@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assgniment 10</title>
+  <title>Assgniment 10
+  </title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -12,50 +13,52 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="app-card">
+<div class="wrapper">
+  <div class="app-card">
 
-      <div class="app-header">
-        <div>
-          <h1 class="app-title">TODO APP</h1>
+    <div class="app-header">
+      <div>
+        <h1 class="app-title">TODO APP</h1>
+      </div>
+      <div class="task-counter" id="counter"><b>0</b>&nbsp;tasks</div>
+    </div>
+
+    <div class="app-body">
+
+      <!-- SEARCH -->
+      <div class="search-row">
+        <div class="search-wrap">
+          <i class="fas fa-search si"></i>
+          <input type="text" id="searchField" placeholder="Search tasks..." autocomplete="off" />
         </div>
-        <div class="task-counter" id="counter"><b>0</b>&nbsp;tasks</div>
+        <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
       </div>
 
-      <div class="app-body">
+      <div class="divider"></div>
 
-        <!-- SEARCH -->
-        <div class="search-row">
-          <div class="search-wrap">
-            <i class="fas fa-search si"></i>
-            <input type="text" id="searchField" placeholder="Search tasks..." autocomplete="off" />
-          </div>
-          <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- ADD -->
-        <div class="add-row">
-          <input type="text" id="todoInput" placeholder="Type a new task..." autocomplete="off" />
-          <button id="addBtn">+ Add</button>
-        </div>
-
-        <div class="section-label">Tasks</div>
-        <ul id="todoList"></ul>
-
-        <div id="emptyState" class="show">
-          <div class="et">No tasks yet</div>
-        </div>
-
+      <!-- ADD -->
+      <div class="add-row">
+        <input type="text" id="todoInput" placeholder="Type a new task..." autocomplete="off" />
+        <button id="addBtn">+ Add</button>
       </div>
 
-      <div class="app-footer">
-        <button id="clearBtn">Clear all</button>
+      <div class="section-label">Tasks</div>
+      <ul id="todoList"></ul>
+
+      <div id="emptyState" class="show">
+        <div class="et">No tasks yet</div>
       </div>
 
     </div>
+
+    <div class="app-footer">
+      <span class="hint">PRESS ENTER TO ADD</span>
+      <button id="clearBtn">Clear all</button>
+    </div>
+
   </div>
+</div>
+
 </body>
 <script src="app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

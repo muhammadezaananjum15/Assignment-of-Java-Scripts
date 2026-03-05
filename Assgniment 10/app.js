@@ -1,11 +1,11 @@
-const todoInput = document.getElementById('todoInput');
-const addBtn = document.getElementById('addBtn');
-const todoList = document.getElementById('todoList');
-const emptyState = document.getElementById('emptyState');
-const counter = document.getElementById('counter');
-const searchField = document.getElementById('searchField');
-const searchBtn = document.getElementById('searchBtn');
-const clearBtn = document.getElementById('clearBtn');
+const todoInput = document.querySelector('#todoInput');
+const addBtn = document.querySelector('#addBtn');
+const todoList = document.querySelector('#todoList');
+const emptyState = document.querySelector('#emptyState');
+const counter = document.querySelector('#counter');
+const searchField = document.querySelector('#searchField');
+const searchBtn = document.querySelector('#searchBtn');
+const clearBtn = document.querySelector('#clearBtn');
 
 let editIndex = null;
 
@@ -37,11 +37,12 @@ const doAdd = () => {
   if (editIndex === null) {
     const li = document.createElement('li');
     li.innerHTML = `
-      <span class="todo-text">${esc(val)}</span>
-      <div class="actions">
-        <button class="ibtn edit" title="Edit"><i class="fas fa-edit"></i></button>
-        <button class="ibtn del" title="Delete"><i class="far fa-trash-alt"></i></button>
-      </div>`;
+          <span class="todo-text">${esc(val)}</span>
+          <div class="actions">
+            <button class="ibtn done-btn" title="Mark done"><i class="fas fa-check"></i></button>
+            <button class="ibtn edit" title="Edit"><i class="fas fa-edit"></i></button>
+            <button class="ibtn del" title="Delete"><i class="far fa-trash-alt"></i></button>
+          </div>`;
     todoList.appendChild(li);
   } else {
     const item = todoList.querySelectorAll('li')[editIndex];
@@ -55,14 +56,29 @@ const doAdd = () => {
   refreshCounter();
   refreshSearch();
 };
+
 addBtn.addEventListener('click', doAdd);
 todoInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') doAdd();
 });
+
 todoList.addEventListener('click', (e) => {
   const li = e.target.closest('li');
   if (!li) return;
 
+  // ── DONE button ──
+  if (e.target.closest('.done-btn')) {
+    const btn = li.querySelector('.done-btn');
+    li.classList.toggle('done');
+    // pop animation
+    btn.classList.remove('popping');
+    void btn.offsetWidth; // reflow
+    btn.classList.add('popping');
+    btn.addEventListener('animationend', () => btn.classList.remove('popping'), { once: true });
+    return;
+  }
+
+  // ── DELETE ──
   if (e.target.closest('.del')) {
     li.classList.add('removing');
     setTimeout(() => {
@@ -75,8 +91,10 @@ todoList.addEventListener('click', (e) => {
       refreshCounter();
       refreshSearch();
     }, 200);
+    return;
   }
 
+  // ── EDIT ──
   if (e.target.closest('.edit')) {
     const all = Array.from(todoList.querySelectorAll('li'));
     editIndex = all.indexOf(li);
@@ -86,6 +104,7 @@ todoList.addEventListener('click', (e) => {
     todoInput.focus();
   }
 });
+
 searchField.addEventListener('input', () => {
   refreshSearch();
   const hasQ = searchField.value.trim() !== '';
@@ -106,6 +125,7 @@ searchBtn.addEventListener('click', () => {
   refreshSearch();
   searchField.focus();
 });
+
 clearBtn.addEventListener('click', () => {
   Array.from(todoList.querySelectorAll('li')).forEach((li, i) => {
     setTimeout(() => {
