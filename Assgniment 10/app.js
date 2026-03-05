@@ -6,21 +6,17 @@ const counter = document.querySelector('#counter');
 const searchField = document.querySelector('#searchField');
 const searchBtn = document.querySelector('#searchBtn');
 const clearBtn = document.querySelector('#clearBtn');
-
 let editIndex = null;
-
 const esc = (s) => {
   const d = document.createElement('div');
   d.textContent = s;
   return d.innerHTML;
 };
-
 const refreshCounter = () => {
   const n = todoList.querySelectorAll('li:not(.removing)').length;
   counter.innerHTML = `<b>${n}</b>&nbsp;${n === 1 ? 'task' : 'tasks'}`;
   emptyState.className = n === 0 ? 'show' : '';
 };
-
 const refreshSearch = () => {
   const q = searchField.value.toLowerCase().trim();
   todoList.querySelectorAll('li').forEach((li) => {
@@ -29,11 +25,9 @@ const refreshSearch = () => {
     li.classList.toggle('hidden', q && !txt.includes(q));
   });
 };
-
 const doAdd = () => {
   const val = todoInput.value.trim();
   if (!val) return;
-
   if (editIndex === null) {
     const li = document.createElement('li');
     li.innerHTML = `
@@ -65,20 +59,6 @@ todoInput.addEventListener('keydown', (e) => {
 todoList.addEventListener('click', (e) => {
   const li = e.target.closest('li');
   if (!li) return;
-
-  // ── DONE button ──
-  if (e.target.closest('.done-btn')) {
-    const btn = li.querySelector('.done-btn');
-    li.classList.toggle('done');
-    // pop animation
-    btn.classList.remove('popping');
-    void btn.offsetWidth; // reflow
-    btn.classList.add('popping');
-    btn.addEventListener('animationend', () => btn.classList.remove('popping'), { once: true });
-    return;
-  }
-
-  // ── DELETE ──
   if (e.target.closest('.del')) {
     li.classList.add('removing');
     setTimeout(() => {
@@ -93,8 +73,6 @@ todoList.addEventListener('click', (e) => {
     }, 200);
     return;
   }
-
-  // ── EDIT ──
   if (e.target.closest('.edit')) {
     const all = Array.from(todoList.querySelectorAll('li'));
     editIndex = all.indexOf(li);
@@ -104,7 +82,6 @@ todoList.addEventListener('click', (e) => {
     todoInput.focus();
   }
 });
-
 searchField.addEventListener('input', () => {
   refreshSearch();
   const hasQ = searchField.value.trim() !== '';
@@ -113,11 +90,9 @@ searchField.addEventListener('input', () => {
     ? '<i class="fas fa-times"></i> Clear'
     : '<i class="fas fa-search"></i> Search';
 });
-
 searchField.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') refreshSearch();
 });
-
 searchBtn.addEventListener('click', () => {
   if (searchField.value.trim()) searchField.value = '';
   searchBtn.classList.remove('active');
@@ -125,7 +100,6 @@ searchBtn.addEventListener('click', () => {
   refreshSearch();
   searchField.focus();
 });
-
 clearBtn.addEventListener('click', () => {
   Array.from(todoList.querySelectorAll('li')).forEach((li, i) => {
     setTimeout(() => {
@@ -140,5 +114,4 @@ clearBtn.addEventListener('click', () => {
   addBtn.textContent = '+ Add';
   addBtn.classList.remove('update');
 });
-
 refreshCounter();
