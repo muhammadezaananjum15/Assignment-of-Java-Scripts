@@ -3,62 +3,58 @@ const addBtn = document.querySelector('#addBtn');
 const todoList = document.querySelector('#todoList');
 const emptyState = document.querySelector('#emptyState');
 const counter = document.querySelector('#counter');
-const searchField = document.querySelector('#searchField');
-const searchBtn = document.querySelector('#searchBtn');
-const clearBtn = document.querySelector('#clearBtn');
 let editIndex = null;
+
+// Escape HTML to avoid XSS
 const esc = (s) => {
   const d = document.createElement('div');
   d.textContent = s;
   return d.innerHTML;
 };
-const refreshCounter = () => {
+
+// Update task counter and empty state
+function refreshCounter() {
   const n = todoList.querySelectorAll('li:not(.removing)').length;
-  counter.innerHTML = `<b>${n}</b>&nbsp;${n === 1 ? 'task' : 'tasks'}`;
+  counter.innerHTML = `<b>${n}</b> ${n === 1 ? 'task' : 'tasks'}`;
   emptyState.className = n === 0 ? 'show' : '';
-};
-const refreshSearch = () => {
-  const q = searchField.value.toLowerCase().trim();
-  todoList.querySelectorAll('li').forEach((li) => {
-    if (li.classList.contains('removing')) return;
-    const txt = li.querySelector('.todo-text').textContent.toLowerCase();
-    li.classList.toggle('hidden', q && !txt.includes(q));
-  });
-};
-const doAdd = () => {
+}
+
+// Add or update a task
+function doAdd() {
   const val = todoInput.value.trim();
   if (!val) return;
+
   if (editIndex === null) {
+    // Add new task
     const li = document.createElement('li');
     li.innerHTML = `
-          <span class="todo-text">${esc(val)}</span>
-          <div class="actions">
-            <button class="ibtn done-btn" title="Mark done"><i class="fas fa-check"></i></button>
-            <button class="ibtn edit" title="Edit"><i class="fas fa-edit"></i></button>
-            <button class="ibtn del" title="Delete"><i class="far fa-trash-alt"></i></button>
-          </div>`;
+      <span class="todo-text">${esc(val)}</span>
+      <div class="actions">
+        <button class="ibtn done-btn" title="Mark done"><i class="fas fa-check"></i></button>
+        <button class="ibtn edit" title="Edit"><i class="fas fa-edit"></i></button>
+        <button class="ibtn del" title="Delete"><i class="far fa-trash-alt"></i></button>
+      </div>`;
     todoList.appendChild(li);
   } else {
-    const item = todoList.querySelectorAll('li')[editIndex];
-    if (item) item.querySelector('.todo-text').textContent = val;
+    // Update existing task
+    const li = todoList.querySelectorAll('li')[editIndex];
+    li.querySelector('.todo-text').textContent = val;
     editIndex = null;
     addBtn.textContent = '+ Add';
     addBtn.classList.remove('update');
   }
 
   todoInput.value = '';
+  todoInput.focus();
   refreshCounter();
-  refreshSearch();
-};
+}
 
-addBtn.addEventListener('click', doAdd);
-todoInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') doAdd();
-});
-
+// Handle click actions on tasks
 todoList.addEventListener('click', (e) => {
   const li = e.target.closest('li');
   if (!li) return;
+
+  // Delete task
   if (e.target.closest('.del')) {
     li.classList.add('removing');
     setTimeout(() => {
@@ -69,10 +65,11 @@ todoList.addEventListener('click', (e) => {
         addBtn.classList.remove('update');
       }
       refreshCounter();
-      refreshSearch();
     }, 200);
     return;
   }
+
+  // Edit task
   if (e.target.closest('.edit')) {
     const all = Array.from(todoList.querySelectorAll('li'));
     editIndex = all.indexOf(li);
@@ -80,26 +77,25 @@ todoList.addEventListener('click', (e) => {
     addBtn.textContent = '✓ Update';
     addBtn.classList.add('update');
     todoInput.focus();
+    return;
   }
+
+  // Mark done / toggle complete
+  if (e.target.closest('.done-btn')) {
+    li.classList.toggle('done');
+  }
+
+  refreshCounter();
 });
-searchField.addEventListener('input', () => {
-  refreshSearch();
-  const hasQ = searchField.value.trim() !== '';
-  searchBtn.classList.toggle('active', hasQ);
-  searchBtn.innerHTML = hasQ
-    ? '<i class="fas fa-times"></i> Clear'
-    : '<i class="fas fa-search"></i> Search';
+
+// Add task on button click or Enter
+addBtn.addEventListener('click', doAdd);
+todoInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') doAdd();
 });
-searchField.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') refreshSearch();
-});
-searchBtn.addEventListener('click', () => {
-  if (searchField.value.trim()) searchField.value = '';
-  searchBtn.classList.remove('active');
-  searchBtn.innerHTML = '<i class="fas fa-search"></i> Search';
-  refreshSearch();
-  searchField.focus();
-});
+
+// Clear all tasks
+const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', () => {
   Array.from(todoList.querySelectorAll('li')).forEach((li, i) => {
     setTimeout(() => {
@@ -114,4 +110,6 @@ clearBtn.addEventListener('click', () => {
   addBtn.textContent = '+ Add';
   addBtn.classList.remove('update');
 });
+
+// Initial counter
 refreshCounter();
