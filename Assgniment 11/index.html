@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Clock & Stopwatch</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="card-title">Digital Clock</div>
+    <div class="clock-digits">
+      <span class="num" id="clockH">12</span>
+      <span class="sep">:</span>
+      <span class="num" id="clockM">00</span>
+      <span class="sep">:</span>
+      <span class="num" id="clockS">00</span>
+    </div>
+    <div class="clock-sub">
+      <span id="dateDisplay"></span>
+      <span id="ampm"></span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Stopwatch</div>
+    <div class="sw-digits">
+      <span class="num" id="swM">00</span>
+      <span class="sep">:</span>
+      <span class="num" id="swS">00</span>
+      <span class="sep">.</span>
+      <span class="ms"  id="swMs">00</span>
+    </div>
+    <div class="buttons">
+      <button id="btnStart">Start</button>
+      <button id="btnStop"  disabled>Stop</button>
+      <button id="btnReset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js">
+ 
+</script>
+</body>
+</html>

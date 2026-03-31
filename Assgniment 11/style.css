@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+.container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.card {
+  background: #141414;
+  border: 1px solid #1f1f1f;
+  border-radius: 14px;
+  padding: 28px 26px;
+}
+
+.card-title {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #3a3a3a;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.clock-digits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.clock-digits span.num {
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.clock-digits span.sep {
+  font-size: 70px;
+  color: #2a2a2a;
+  line-height: 1;
+  margin: 0 1px 4px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.clock-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #1c1c1c;
+}
+
+#dateDisplay {
+  font-size: 11px;
+  color: #383838;
+  letter-spacing: 0.5px;
+}
+
+#ampm {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #484848;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+/* ── STOPWATCH ── */
+.sw-digits {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1px;
+}
+
+.sw-digits .num {
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.sw-digits .sep {
+  font-size: 40px;
+  color: #2a2a2a;
+  line-height: 1;
+  margin: 0 2px 5px;
+}
+
+.sw-digits .ms {
+  font-size: 50px;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+button {
+  padding: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #1f1f1f;
+  background: #181818;
+  color: #666;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+button:active:not(:disabled) {
+  background: #262626;
+}
+#btnStart {
+  color: #ffffff;
+  border-color: #1a271a;
+}
+#btnStart:hover:not(:disabled) {
+  background: #172017;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+#btnStop {
+  color: #9a4c4c;
+  border-color: #271a1a;
+}
+
+
+@media (max-width: 380px) {
+  .card {
+    padding: 22px 18px;
+  }
+  #dateDisplay {
+    font-size: 10px;
+  }
+}
